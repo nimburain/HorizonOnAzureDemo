@@ -253,7 +253,7 @@
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "fileUris": [
-                        "https://raw.githubusercontent.com/nimburain/scripts/main/create_AD.ps1"
+                        "https://raw.githubusercontent.com/nimburain/HorizonOnAzureDemo/master/BaseSetupArtefacts/create_AD.ps1"
                     ],
                     "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File create_AD.ps1 ',parameters('DomainName'), ' ',parameters('adminPassword'))]"
                 },
