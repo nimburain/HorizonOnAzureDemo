@@ -95,6 +95,6 @@ $Downloads = @( `
 $apiURL = "https://bfrankpageviewcounter.azurewebsites.net/api/GetPageViewCount"
 $body = @{URL='wvdsdbox-dc'} | ConvertTo-Json
 Invoke-WebRequest -Method Post -Uri $apiURL -Body $body -ContentType 'application/json'
-#>
+###>
 stop-transcript
 #
