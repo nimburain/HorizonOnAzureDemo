@@ -38,7 +38,7 @@ New-ADOrganizationalUnit -Name:"Users-Groups" -Path:"OU=$OUName,$DomainPath" -Pr
 #endregion
 
 #region add Sec Group "Horizon View Users"
-    New-ADGroup -GroupCategory:"Security" -GroupScope:"Global" -Name:"Horizon View Users" -Path:"OU=Users-Groups,$OUName,$DomainPath" -SamAccountName:"Horizon View Users" 
+New-ADGroup -GroupCategory:"Security" -GroupScope:"Global" -Name:"Horizon View Users" -Path:"OU=Users-Groups,$OUName,$DomainPath" -SamAccountName:"Horizon View Users" 
 #endregion
 
 #disable IE Enhanced Security Configuration
@@ -75,7 +75,7 @@ Set-ItemProperty -Path $ieESCUserPath -Name IsInstalled -Value $ieESCAdminEnable
         Set-ADUser -ChangePasswordAtLogon:$false -Identity:$user.DistinguishedName -PasswordNeverExpires:$true 
 
         # Set DomainJoin Permissions
-        dsacls.exe $PermOU /G $userName":CCDC;Computer" /I:T
+        <# dsacls.exe $PermOU /G $userName":CCDC;Computer" /I:T
         dsacls.exe $PermOU /G $userName":LC;;Computer" /I:S
         dsacls.exe $PermOU /G $userName":RC;;Computer" /I:S
         dsacls.exe $PermOU /G $userName":WD;;Computer" /I:S
@@ -86,6 +86,7 @@ Set-ItemProperty -Path $ieESCUserPath -Name IsInstalled -Value $ieESCAdminEnable
         dsacls.exe $PermOU /G $userName":WS;Validated write to service principal name;Computer" /I:S
         dsacls.exe $PermOU /G $userName":WS;Validated write to DNS host name;Computer" /I:S
         dsacls.exe $PermOU
+        #>
     }
 
 
