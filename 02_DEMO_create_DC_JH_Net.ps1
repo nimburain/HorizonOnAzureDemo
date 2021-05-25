@@ -63,7 +63,7 @@ New-AzResourceGroupDeployment -ResourceGroupName 'rg-demo-basics' -Name 'FileSer
 Remove-AzVMCustomScriptExtension -Name 'DCInstall' -VMName $($templateParameterObject1.vmName) -ResourceGroupName 'rg-demo-basics' -Force  
 
 #Do post AD installation steps: e.g. create OUs and some Horizon View Demo Users.
-Set-AzVMCustomScriptExtension -Name 'PostDCActions' -VMName $($templateParameterObject1.vmName) -ResourceGroupName 'rg-demo-basics' -Location (Get-AzVM -ResourceGroupName 'rg-demo-basics' -Name $($templateParameterObject1.vmName)).Location -Run 'CSE_AD_Post.ps1' -Argument "HorizonView $($credential.GetNetworkCredential().Password)" -FileUri 'https://raw.githubusercontent.com/nimburain/HorizonOnAzureDemo/master/BaseSetupArtefacts/CSE_AD_Post.ps1'  
+Set-AzVMCustomScriptExtension -Name 'PostDCActions' -VMName $($templateParameterObject1.vmName) -ResourceGroupName 'rg-demo-basics' -Location (Get-AzVM -ResourceGroupName 'rg-demo-basics' -Name $($templateParameterObject1.vmName)).Location -Run 'CSE_AD_Post.ps1' -Argument "HorizonView $($credential.GetNetworkCredential().Password)" -FileUri 'https://raw.githubusercontent.com/nimburain/HorizonOnAzureDemo/master/org_HorizonOnAzureDemo/BaseSetupArtefacts/CSE_AD_Post.ps1'  
   
 #Cleanup
 Remove-AzVMCustomScriptExtension -Name 'PostDCActions' -VMName $($templateParameterObject1.vmName) -ResourceGroupName 'rg-demo-basics' -Force -NoWait

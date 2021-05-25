@@ -6,7 +6,7 @@
     [string] $WVDUsersPassword
 )
 
-#this will be our temp folder - need it for download / logging
+##this will be our temp folder - need it for download / logging
 $tmpDir = "c:\temp\" 
 
 #create folder if it doesn't exist
